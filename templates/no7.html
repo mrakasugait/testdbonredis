@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<form action="?" method="post">
+    <table>
+        <tr>
+            <th>始期</th>
+            <th>終期</th>
+            <th>グレード</th>
+            <th>開催区分</th>
+        </tr>
+        <tr>
+            <td>
+                <select name="year7_1">
+                    <option value="2020">2020</option>
+                    <option value="2021">2021</option>
+                    <option value="2022">2022</option>
+                    <option value="2023">2023</option>
+                    <option value="2024" selected>2024</option>
+                </select>
+            </td>
+            <td>
+                <select name="year7_2">
+                    <option value="2020">2020</option>
+                    <option value="2021">2021</option>
+                    <option value="2022">2022</option>
+                    <option value="2023">2023</option>
+                    <option value="2024" selected>2024</option>
+                </select>
+            </td>
+            <td>
+                <select name="grade7">
+                    <option value="SG" selected>SG</option>
+                    <option value="PG1">PG1</option>
+                    <option value="SG&PG1">SG+PG1</option>
+                </select>
+            </td>
+            <td>
+                <select name="kubun7">
+                    <option value="" selected></option>
+                    <option value="D">デイ</option>
+                    <option value="S">サマータイム</option>
+                    <option value="D&S">デイ＋サマータイム</option>
+                    <option value="N">ナイター</option>
+                </select>
+            </td>
+        </tr>
+    </table>
+    ※本場開催分は除外
+    <hr color="black">
+    <button type="submit" class="btn btn-outline-primary" name="no7" formaction="/no7">実行</button>
+    <button type="submit" class="btn btn-outline-secondary" name="no7" formaction="/">戻る</button>
+</form>
+
+{% if no7 == 'no7' %}
+<br>
+<table class="border border-dark">
+    {% for row in query %}
+    <tr>
+        <td> {{row[0]}}</td>
+        <td> {{row[1]}}</td>
+        <td> {{row[2]}}</td>
+        <td> {{row[6]}}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endif %}
+{% endblock %}
