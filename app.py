@@ -147,6 +147,7 @@ def hello_world():
 
     df3.drop("緯度", axis=1, inplace=True)
     df3.drop("経度", axis=1, inplace=True)
+    """
     print('---------------------------------------------------------------------------')
     print(df3)
     print('---------------------------------------------------------------------------')
@@ -155,7 +156,6 @@ def hello_world():
     print(f'\n風速{windms}m/s以上の開催')
     print(df3[df3['風速(m/s)'] > windms])
     df3.drop("天気", axis=1, inplace=True)
-
     if dt_now.hour < 15:
         messages = df3[df3['風速(m/s)'] > windms].to_string()
         messages = '' if len(messages) ==0 else messages
@@ -169,5 +169,5 @@ def hello_world():
     else:
         messages = f'時間外もしくは風速{windms}m/s以上の開催はなし'
         messages = '' if len(messages) == 0 else messages
-
-    return messages
+    """
+    return df3.to_string()
