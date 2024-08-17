@@ -13,7 +13,7 @@
             <th class="border border-dark" width="120" bgcolor="#99CCFF">{{i}}</th>
             {% endfor %}
         </tr>
-        {% for i in range(len(df3)) %}
+        {% for i in range(df3 | length()) %}
         <tr align="center" class="border border-dark">
             {% for j in range(df.columns|count) %}
             <td align="right" style="font-family: monospace" class="border border-dark">
