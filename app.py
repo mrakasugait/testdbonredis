@@ -136,7 +136,7 @@ def hello_world():
 
     df3['天気'] = ''
     df3['風速(m/s)'] = ''
-
+    """
     for i in range(len(df3)):
         url = "https://api.weatherapi.com/v1/forecast.json?key={key}&q={lat},{lon}&days=1&aqi=no&alerts=no&lang=ja"
         url = url.format(
@@ -147,27 +147,5 @@ def hello_world():
 
     df3.drop("緯度", axis=1, inplace=True)
     df3.drop("経度", axis=1, inplace=True)
-    """
-    print('---------------------------------------------------------------------------')
-    print(df3)
-    print('---------------------------------------------------------------------------')
-    print(dt_now)
-    print('---------------------------------------------------------------------------')
-    print(f'\n風速{windms}m/s以上の開催')
-    print(df3[df3['風速(m/s)'] > windms])
-    df3.drop("天気", axis=1, inplace=True)
-    if dt_now.hour < 15:
-        messages = df3[df3['風速(m/s)'] > windms].to_string()
-        messages = '' if len(messages) ==0 else messages
-    elif dt_now.hour < 17:
-        messages = df3[(df3['風速(m/s)'] > windms) &
-                    (df3['開催区分'].isin(['D', 'N', 'MN']))].to_string()
-        messages = '' if len(messages) == 0 else messages
-    elif dt_now.hour < 23:
-        messages = df3[(df3['風速(m/s)'] > windms) & (df3['開催区分'].isin(['N', 'MN']))].to_string()
-        messages = '' if len(messages) == 0 else messages
-    else:
-        messages = f'時間外もしくは風速{windms}m/s以上の開催はなし'
-        messages = '' if len(messages) == 0 else messages
     """
     return df3.to_string()
