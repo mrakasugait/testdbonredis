@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+
+<h4 align="center">取得結果</h4>
+
+<br>
+    <table class="border border-dark">
+        <tr>
+            <th class="border border-dark" width="120" bgcolor="#99CCFF">期間</th>
+            {% for i in df3.columns %}
+            <th class="border border-dark" width="120" bgcolor="#99CCFF">{{i}}</th>
+            {% endfor %}
+        </tr>
+        {% for i in range(len(df3)) %}
+        <tr align="center" class="border border-dark">
+            {% for j in range(df.columns|count) %}
+            <td align="right" style="font-family: monospace" class="border border-dark">
+                {{df.iloc[i,j]}}</td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+    </table>
+
+{% endblock %}
