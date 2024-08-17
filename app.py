@@ -131,10 +131,9 @@ def index():
     print(df)
     df2 = pd.read_csv("loc.csv", encoding='shift-jis')
     df3 = df.merge(df2)
-
+    """
     df3['天気'] = ''
     df3['風速(m/s)'] = ''
-    """
     for i in range(len(df3)):
         url = "https://api.weatherapi.com/v1/forecast.json?key={key}&q={lat},{lon}&days=1&aqi=no&alerts=no&lang=ja"
         url = url.format(
@@ -146,5 +145,5 @@ def index():
     df3.drop("緯度", axis=1, inplace=True)
     df3.drop("経度", axis=1, inplace=True)
     """
-    #return df3.to_string()
+
     return render_template('index.html',df3=df3)
