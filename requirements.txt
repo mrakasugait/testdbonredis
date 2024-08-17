@@ -3,3 +3,4 @@ Gunicorn
 pandas
 sqlalchemy
 bs4
+requests
