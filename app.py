@@ -19,8 +19,7 @@ def index():
     joumei = {'桐': '桐 生', '戸': '戸 田', '江': '江 戸 川', '平': '平 和 島', '多': '多 摩 川', '浜': '浜 名 湖', '蒲': '蒲 郡', '常': '常 滑', '津': '津', '三': '三 国', 'び': 'び わ こ',
             '住': '住 之 江', '尼': '尼 崎', '鳴': '鳴 門', '丸': '丸 亀', '児': '児 島', '宮': '宮 島', '徳': '徳 山', '下': '下 関', '若': '若 松', '芦': '芦 屋', '福': '福 岡', '唐': '唐 津', '大': '大 村'}
 
-    dt_now = datetime.datetime.now()
-    # dt_now = datetime.datetime.now()+datetime.timedelta(hours=9)
+    dt_now = datetime.datetime.now()+datetime.timedelta(hours=9)
     # dt_today = dt_now.day-1 if dt_now.hour < 9 else dt_now.day
 
     URL = 'http://www.motorboatracing-association.jp/index.html'
