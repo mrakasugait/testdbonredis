@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask ,render_template
 app = Flask(__name__)
 """
 @app.route('/')
@@ -12,8 +12,9 @@ import requests
 import datetime
 from bs4 import BeautifulSoup
 
+#@app.route('/', methods=['GET', 'POST'])
 @app.route('/')
-def hello_world():
+def index():
     windms = 8
     joumei = {'桐': '桐 生', '戸': '戸 田', '江': '江 戸 川', '平': '平 和 島', '多': '多 摩 川', '浜': '浜 名 湖', '蒲': '蒲 郡', '常': '常 滑', '津': '津', '三': '三 国', 'び': 'び わ こ',
             '住': '住 之 江', '尼': '尼 崎', '鳴': '鳴 門', '丸': '丸 亀', '児': '児 島', '宮': '宮 島', '徳': '徳 山', '下': '下 関', '若': '若 松', '芦': '芦 屋', '福': '福 岡', '唐': '唐 津', '大': '大 村'}
@@ -146,4 +147,4 @@ def hello_world():
     df3.drop("経度", axis=1, inplace=True)
     """
     #return df3.to_string()
-    return df3
+    return render_template('index.html',df3=df3)
