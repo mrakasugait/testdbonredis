@@ -114,9 +114,6 @@ def hello_world():
     df['通算日'] = tsusan_data
     df['開催区分'] = ''
 
-    print('---------------------------------------------------------------------------')
-    print(df)
-
     for i in range(24):
         if df.iloc[i, 0] in morningList:
             df.iloc[i, 2] = 'M'
@@ -148,4 +145,5 @@ def hello_world():
     df3.drop("緯度", axis=1, inplace=True)
     df3.drop("経度", axis=1, inplace=True)
     """
-    return df3.to_string()
+    #return df3.to_string()
+    return df3
