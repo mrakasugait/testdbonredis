@@ -9,13 +9,13 @@
 <table class="border border-dark">
     <tr>
         {% for i in df.columns %}
-        <th class="border border-dark" width="120" bgcolor="#99CCFF" align="center">{{i}}</th>
+        <th align="center" class="border border-dark" width="120" bgcolor="#99CCFF">{{i}}</th>
         {% endfor %}
     </tr>
     {% for i in range(df|length()) %}
     <tr align="center" class="border border-dark">
         {% for j in range(df.columns|count) %}
-        <td align="right" style="font-family: monospace" class="border border-dark">
+        <td align="center" style="font-family: monospace" class="border border-dark">
             {{df.iloc[i,j]}}</td>
         {% endfor %}
     </tr>
