@@ -146,4 +146,4 @@ def index():
     df3.drop("経度", axis=1, inplace=True)
     """
 
-    return render_template('index.html',df3=df3)
+    return render_template('index.html',df=df3,date=dt_now.strftime('%Y%m%d'))
