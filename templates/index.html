@@ -15,9 +15,9 @@
         </tr>
         {% for i in range(df3 | length()) %}
         <tr align="center" class="border border-dark">
-            {% for j in range(df.columns|count) %}
+            {% for j in range(df3.columns|count) %}
             <td align="right" style="font-family: monospace" class="border border-dark">
-                {{df.iloc[i,j]}}</td>
+                {{df3.iloc[i,j]}}</td>
             {% endfor %}
         </tr>
         {% endfor %}
